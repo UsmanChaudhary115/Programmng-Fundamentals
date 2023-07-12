@@ -1,24 +1,23 @@
-void displayTimeInTwelveHoursFormat()//use header file named "iomanip"
-	{
-		int tempHour = hour, tempMinute = minute, tempSecond = second;
-		if (tempHour == 24)
+void displayTimeInTwelveHoursFormat(int hours,int minutes, int seconds)//use header file named "iomanip"
+	{
+		if (hours == 24)
 		{
-			tempHour = 0;
+			hours = 0;
 		}
-		if (tempHour > 11)
+		if (hours > 11)
 		{
-			if (tempHour > 12)
+			if (hours > 12)
 			{
-				tempHour = tempHour - 12;
+				hours = hours - 12;
 			}
-			cout << setw(2) << setfill('0') << tempHour << ':' << setw(2) << tempMinute << ':' << setw(2) << tempSecond << " PM";
+			cout << setw(2) << setfill('0') << hours << ':' << setw(2) << minutes << ':' << setw(2) << seconds << " PM";
 		}
 		else
 		{
-			if (tempHour == 0)
+			if (hours == 0)
 			{
-				tempHour = 12;
+				hours = 12;
 			}
-			cout << setw(2) << setfill('0') << tempHour << ':' << setw(2) << tempMinute << ':' << setw(2) << tempSecond << " AM";
+			cout << setw(2) << setfill('0') << hours << ':' << setw(2) << minutes << ':' << setw(2) << seconds << " AM";
 		}
 	}
