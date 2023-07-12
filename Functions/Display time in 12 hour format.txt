@@ -1,0 +1,24 @@
+void displayTimeInTwelveHoursFormat()//use header file named "iomanip"
+	{
+		int tempHour = hour, tempMinute = minute, tempSecond = second;
+		if (tempHour == 24)
+		{
+			tempHour = 0;
+		}
+		if (tempHour > 11)
+		{
+			if (tempHour > 12)
+			{
+				tempHour = tempHour - 12;
+			}
+			cout << setw(2) << setfill('0') << tempHour << ':' << setw(2) << tempMinute << ':' << setw(2) << tempSecond << " PM";
+		}
+		else
+		{
+			if (tempHour == 0)
+			{
+				tempHour = 12;
+			}
+			cout << setw(2) << setfill('0') << tempHour << ':' << setw(2) << tempMinute << ':' << setw(2) << tempSecond << " AM";
+		}
+	}
