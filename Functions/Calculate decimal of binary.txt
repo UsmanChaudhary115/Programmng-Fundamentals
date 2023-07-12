@@ -1,0 +1,12 @@
+int convertBinaryToDecimal(int number)
+{
+	int i = 0;
+	int sum = 0;
+	while (number)
+	{
+		sum = sum + ((number % 10) * calculatePower(2, i));
+		i = i + 1;
+		number = number / 10;
+	}
+	return sum;
+}

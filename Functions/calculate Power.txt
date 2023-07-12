@@ -1,0 +1,22 @@
+float calculatePower(int num, int pow)
+{
+	float powerSum = 1;
+	if (pow >0)
+	{
+		for (int counter = 1; counter <= pow; counter = counter + 1)
+		{
+			powerSum = powerSum * num;
+		}
+	}
+	else
+	{
+		pow = pow * -1;
+		int sum = 1;
+		for (int counter = 1; counter <= pow; counter = counter + 1)
+		{
+			sum = sum * num;
+		}
+		powerSum=1.0/sum;
+	}
+	return powerSum;
+}

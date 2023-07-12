@@ -1,0 +1,19 @@
+int calculateBinary(int number)
+{
+	int sum = 0, count = 0;
+	while (number)
+	{
+		int r = number % 2;
+		number = number / 2;
+		sum = sum * 10 + r;
+		count = count + 1;
+	}
+	int binarynumber = 0;
+	while (count)
+	{
+		binarynumber = binarynumber * 10 + sum % 10;
+		sum = sum / 10;
+		count = count - 1;
+	}
+	return binarynumber;
+}

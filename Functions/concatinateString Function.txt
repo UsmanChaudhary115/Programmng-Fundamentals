@@ -1,0 +1,25 @@
+int getStringLength(const char const* array)
+{
+	int length = 0;
+	while (array[length] != '\0')
+	{
+		length = length + 1;
+	}
+	return length;
+}
+void copyString(char *const destinationArray,const char const*sourceArray, int counter = 0)
+{
+	int i = 0;
+	while (sourceArray[i] != '\0')
+	{
+		destinationArray[counter] = sourceArray[i];
+		counter = counter + 1;
+		i = i + 1;
+	}
+	destinationArray[counter] = '\0';
+}
+void catinateString(char* const destinationArray,const char * const sourceArray)
+{
+	int counter = getStringLength(destinationArray);
+	copyString(destinationArray, sourceArray, counter);
+}

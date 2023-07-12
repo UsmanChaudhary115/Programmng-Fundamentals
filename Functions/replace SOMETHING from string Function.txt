@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+int getStringLength(const char const* array)
+{
+	int length = 0;
+	while (array[length] != '\0')
+	{
+		length = length + 1;
+	}
+	return length;
+}
+int findSubString(const char* const destinationArray, const char* const key)
+{
+	int startingBit = -1;
+	bool status = false;
+	int counter = 0;
+	while (destinationArray[counter] != '\0')
+	{
+		int i = 0;
+		if (destinationArray[counter] == key[i])
+		{
+			while (destinationArray[counter] != '\0' && destinationArray[counter] == key[i])
+			{
+				counter = counter + 1;
+				i = i + 1;
+			}
+		}
+		if (getStringLength(key) == i)
+		{
+			startingBit = counter - i;
+		}
+		counter = counter + 1;
+	}
+	return startingBit;
+}
+void shiftBits(char* const destinationArray,const int shiftingBits,const int destinationArrayLength, const int startingBit, const int replaceableKeyLength)
+{
+	if (shiftingBits > 0)
+	{
+		for (int i = destinationArrayLength; i >= (startingBit + replaceableKeyLength); i = i - 1)
+		{
+			destinationArray[i + shiftingBits] = destinationArray[i];
+		}
+	}
+	else
+	{
+		for (int i = startingBit + replaceableKeyLength; i <= destinationArrayLength; i = i + 1)
+		{
+			destinationArray[i + shiftingBits] = destinationArray[i];
+		}
+	}
+}
+void populatingArray(char* const destinationArray, const char* const sourceKey, const int startingBit, const int sourceKeyLength)
+{
+	for (int i = startingBit, j = 0; j < sourceKeyLength; i = i + 1, j = j + 1)
+	{
+		destinationArray[i] = sourceKey[j];
+	}
+}
+void replaceString(char* const destinationArray, const char* const sourceKey, const char* const replaceableKey)
+{
+	int sourceKeyLength = getStringLength(sourceKey), replaceableKeyLength = getStringLength(replaceableKey), destinationArrayLength = getStringLength(destinationArray);;
+	int shiftingBits = sourceKeyLength - replaceableKeyLength;
+	int startingBit = findSubString(destinationArray, replaceableKey);
+	if (startingBit >= 0)
+	{
+		shiftBits(destinationArray, shiftingBits, destinationArrayLength, startingBit, replaceableKeyLength);
+		populatingArray(destinationArray, sourceKey, startingBit, sourceKeyLength);
+	}
+	else
+	{
+		return;
+	}
+}
+int main()
+{
+	const int size = 100;
+	char destinationArray[size] = "Cricket is a bat-and-ball game played between two teams of eleven players.";
+	char sourceKey[size/2]="play";
+	char replaceableKey[size / 2] = "gamse";
+	replaceString(destinationArray, sourceKey, replaceableKey);
+	cout << destinationArray;
+	cout << endl;
+	return 0;
+}

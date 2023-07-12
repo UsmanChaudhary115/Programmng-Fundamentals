@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+int getStringLength(const char const* array)
+{
+	int length = 0;
+	while (array[length] != '\0')
+	{
+		length = length + 1;
+	}
+	return length;
+}
+void shiftBits(char* const destinationArray,const int destinationArrayLength, const int startingPoint, const int sourceArrayLength)
+{
+	for (int i = destinationArrayLength - 1; i >= startingPoint; i = i - 1)
+	{
+		destinationArray[i + sourceArrayLength] = destinationArray[i];
+	}
+}
+void populatingArray(char* const destinationArray, const char* const sourceKey, const int startingPoint, const int sourceKeyLength)
+{
+	for (int i = startingPoint, j = 0; j < sourceKeyLength; i = i + 1, j = j + 1)
+	{
+		destinationArray[i] = sourceKey[j];
+	}
+}
+void insertString(char* const destinationArray, const char* const sourceArray)
+{
+	int startingPoint;
+	cout << "Enter number of places you want to skip: ";
+	cin >> startingPoint;
+	int sourceArrayLength = getStringLength(sourceArray);
+	int destinationArrayLength = getStringLength(destinationArray);
+	shiftBits(destinationArray, destinationArrayLength, startingPoint, sourceArrayLength);
+	populatingArray(destinationArray, sourceArray, startingPoint, sourceArrayLength);
+}
+int main()
+{
+	const int size = 100;
+	char destinationArray[size] = "Cricket is a game played between two teams of eleven players.";
+	char sourceKey[size/2]="T20 ";
+	insertString(destinationArray, sourceKey);
+	cout << destinationArray;
+	cout << endl;
+	return 0;
+}

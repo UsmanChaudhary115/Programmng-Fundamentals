@@ -1,0 +1,22 @@
+void printRectangle(int length, int width) //enter length and width of the rectangle
+{
+	for (int j = 0; j < length; j++)
+	{
+		cout << '*';
+	}
+	cout << endl;
+	for (int i = width - 2; i > 0; i--)
+	{
+		cout << '*';
+		for (int j = length - 2; j > 0; j--)
+		{
+			cout << ' ';
+		}
+		cout << '*';
+		cout << endl;
+	}
+	for (int j = 0; j < length; j++)
+	{
+		cout << '*';
+	}
+}

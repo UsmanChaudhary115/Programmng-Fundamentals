@@ -1,0 +1,8 @@
+void printChar(int n, char ch) //input number of times a character should be printed & character
+{
+	while (n)
+	{
+		cout << ch;
+		n--;
+	}
+}

@@ -1,0 +1,9 @@
+int getStringLength(const char const* array)
+{
+	int length = 0;
+	while (array[length] != '\0')
+	{
+		length = length + 1;
+	}
+	return length;
+}

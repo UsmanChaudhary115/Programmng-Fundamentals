@@ -1,0 +1,12 @@
+int getSum(int n)//enter number of terms
+{
+	int sum = 0;
+	int integer = 1;
+	while (n)
+	{
+		sum = sum + integer;
+		integer = integer + 1;
+		n--;
+	}
+	return sum;
+}

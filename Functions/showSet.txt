@@ -1,0 +1,13 @@
+void showSet(int* set, int NoElementInSet)
+{
+	cout << '{';
+	for (int i = 0; i < NoElementInSet; i = i + 1)
+	{
+		cout << set[i];
+		if (i < NoElementInSet - 1)
+		{
+			cout << ", ";
+		}
+	}
+	cout << '}';
+}

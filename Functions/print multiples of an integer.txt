@@ -1,0 +1,10 @@
+void printMultiples(int integer, int countOfMultiples)
+{
+	int originalNumberl = integer;
+	while (countOfMultiples)
+	{
+		cout << integer << ' ';
+		integer = integer + originalNumberl;
+		countOfMultiples--;
+	}
+}
