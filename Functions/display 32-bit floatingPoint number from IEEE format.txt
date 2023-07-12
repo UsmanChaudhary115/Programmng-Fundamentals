@@ -1,0 +1,73 @@
+#include<iostream>
+using namespace std;
+float calculatePower(int num, int pow)
+{
+	float powerSum = 1;
+	if (pow >0)
+	{
+		for (int counter = 1; counter <= pow; counter = counter + 1)
+		{
+			powerSum = powerSum * num;
+		}
+	}
+	else
+	{
+		pow = pow * -1;
+		int sum = 1;
+		for (int counter = 1; counter <= pow; counter = counter + 1)
+		{
+			sum = sum * num;
+		}
+		powerSum=1.0/sum;
+	}
+	return powerSum;
+}
+int convertBinaryToDecimal(int expo)
+{
+	int i = 0;
+	int sum = 0;
+	while (expo)
+	{
+		sum = sum + ((expo % 10) * calculatePower(2, i));
+		i = i + 1;
+		expo = expo / 10;
+	}
+	return sum;
+}
+int calculateExpo(int array[])
+{
+	int count = 1;
+	int expo = 0;
+	for (int i = count; i < 9; i = i + 1)
+	{
+		expo = expo * 10 + array[i];
+	}
+	return expo;
+}
+float calculateMen(int array[],int size)
+{ 
+	float sum = 0;
+	for (int i = 9,j=-1; i < 32; i = i + 1,j=j-1)
+	{
+		sum = sum + (array[i] * calculatePower(2, j));
+	}
+	return sum;
+}
+float getEqualentFloatingPointValue(int array[], int size)
+{
+	int expo=calculateExpo(array);;
+	expo = convertBinaryToDecimal(expo);
+	expo = expo - 127;
+	float men = calculateMen(array, size);
+	men = men + 1;
+	float number = men * calculatePower(2, 7);
+	return array[0] ? -1 * number:number;
+}
+int main()
+{
+	const int size = 32;
+	int array[size] = { 0,1,0,0,0,0,1,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	cout<<getEqualentFloatingPointValue(array, size);
+	cout << endl;
+	return 0;
+}

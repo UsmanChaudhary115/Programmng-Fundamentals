@@ -1,0 +1,178 @@
+#include<iostream>
+using namespace std;
+void calculateNumberOfDigitsAndDivisor(int binaryOfExpo,int*digit,int*div)
+{
+	while (binaryOfExpo)
+	{
+		*div = *div * 10;
+		*digit = *digit + 1;
+		binaryOfExpo = binaryOfExpo / 10;
+	}
+	*div = *div / 10;
+}
+int calculateExpo2(int arrayOfrealPart[],int size)
+{
+	bool status = false;
+	int expo = 0;
+	for (int i = 0; i < size && !status; i = i + 1)
+	{
+		if (arrayOfrealPart[i] == 0)
+		{
+			expo = expo - 1;
+		}
+		else
+		{
+			status = true;
+		}
+	}
+	expo = expo - 1;
+	if (expo == -33)
+	{
+		expo = 0;
+	}
+	return expo;
+}
+int calculateExpo(double number)
+{
+	int count = 0;
+	while ((int)(number / 10))
+	{
+		number = number / 10;
+		count = count + 1;
+	}
+	return count;
+}
+int calculateBinary(int number)
+{
+	int sum = 0, count = 0;
+	while (number)
+	{
+		int r = number % 2;
+		number = number / 2;
+		sum = sum * 10 + r;
+		count = count + 1;
+	}
+	int binarynumber = 0;
+	while (count)
+	{
+		binarynumber = binarynumber * 10 + sum % 10;
+		sum = sum / 10;
+		count = count - 1;
+	}
+	return binarynumber;
+}
+void displayBinary1(float number)
+{
+	const int size = 32;
+	int count = 0;
+	int arrayOfBinaryRepresentation[size];
+	int arrayOfrealPart[size];
+	arrayOfBinaryRepresentation[count] = (number < 0.0 ? true : false);
+	if (number < 0)
+	{
+		number = -1 * number;
+	}
+	count = 1;
+	number = number - (int)number;
+	for (int i = 0; i < size; i = i + 1)
+	{
+		number = number * 2;
+		arrayOfrealPart[i] = (int)number;
+		number = number - (int)number;
+	}
+	int expo = calculateExpo2(arrayOfrealPart, size);
+	if (expo)
+	{
+		expo = 127 + expo;
+	}
+	int binaryOfExpo = calculateBinary(expo);
+	int digit = 0, div = 1;
+	calculateNumberOfDigitsAndDivisor(binaryOfExpo, &digit, &div);
+	while (count < 9)
+	{
+		if((8-count)>=digit)
+		{
+			arrayOfBinaryRepresentation[count] = 0;
+		}
+		else
+		{
+			arrayOfBinaryRepresentation[count] = (binaryOfExpo / div);
+			binaryOfExpo = binaryOfExpo % div;
+			div = div / 10;
+		}
+		count = count + 1;
+	}
+	if (expo)
+	{
+		expo = (expo - 127) * -1;
+	}
+	for (int i = count; i < size; i = i + 1, expo = expo + 1)
+	{
+		arrayOfBinaryRepresentation[i] = arrayOfrealPart[expo];
+	}
+	for (int i = 0; i < size; i = i + 1)
+	{
+		cout << arrayOfBinaryRepresentation[i];
+	}
+}
+void displayBinary2(float a)
+{
+	const int size = 32;
+	int count = 0;
+	int arrayOfBinaryRepresentation[size];
+	arrayOfBinaryRepresentation[count] = (a >= 0 ? false : true);
+	if (a < 0)
+	{
+		a = -1 * a;
+	}
+	count = 1;
+	int b = a;
+	int binarynumber = calculateBinary(b);
+	int expo = calculateExpo(binarynumber);
+	expo = 127 + expo;
+	int binaryOfExpo = calculateBinary(expo);
+	int div = 10000000;
+	while (count < 9)
+	{
+		arrayOfBinaryRepresentation[count] = (binaryOfExpo / div);
+		binaryOfExpo = binaryOfExpo % div;
+		div = div / 10;
+		count = count + 1;
+	}
+	expo = expo - 127;
+	count = count + expo;
+	for (int i = count - 1; i > 8; i = i - 1)
+	{
+		arrayOfBinaryRepresentation[i] = (binarynumber % 10);
+		binarynumber = binarynumber / 10;
+	}
+	a = a - (int)a;
+	while (count < 32)
+	{
+		a = a * 2;
+		arrayOfBinaryRepresentation[count] = (int)a;
+		a = a - (int)a;
+		count = count + 1;
+	}
+	for (int i = 0; i < size; i = i + 1)
+	{
+		cout << arrayOfBinaryRepresentation[i];
+	}
+}
+void displayBinaryOfFloatingPointNumbers(float number)
+{
+	if (number > -1 && number < 1)
+	{
+		displayBinary1(number);
+	}
+	else
+	{
+		displayBinary2(number);
+	}
+}
+int main()
+{
+	displayBinaryOfFloatingPointNumbers(-0);
+	cout << endl;
+	return 0;
+}
