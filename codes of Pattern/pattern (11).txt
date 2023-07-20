@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int N,K;
+	cout << "Enter N: ";
+	cin >> N;
+	cout << "Enter K: ";
+	cin >> K;
+	cout << '{';
+	for (int i = 1; i <= N; i++)
+	{
+		for (int j = 1; j <= K; j++)
+		{
+			cout << '(' << i << ',' << j << ')';
+			if (i < N || j < K)
+			{
+				cout << ',';
+			}
+		}
+	}
+	cout << '}';
+	return 0;
+}
