@@ -1,0 +1,17 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	int a, b, c,d;
+	cout << "Enter x1: ";
+	cin >> a;	   
+	cout << "Enter y1: ";
+	cin >> b;	   
+	cout << "Enter x2: ";
+	cin >> c;	   
+	cout << "Enter y2: ";
+	cin >> d;
+	cout << "Distance: " << sqrt(((c - a) * (c - a)) + ((d - b) * (d - b)));
+	return 0;
+}

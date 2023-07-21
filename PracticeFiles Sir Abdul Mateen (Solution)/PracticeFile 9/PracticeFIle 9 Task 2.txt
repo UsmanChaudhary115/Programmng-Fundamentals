@@ -1,0 +1,80 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int number = rand() % 13 + 1;
+	if (number == 1)
+	{
+		cout << "Ace ";
+	}
+	else if (number == 2)
+	{
+		cout << "Two ";
+	}
+	else if (number == 3)
+	{
+		cout << "Three ";
+	}
+	else if (number == 4)
+	{
+		cout << "Four ";
+	}
+	else if (number == 5)
+	{
+		cout << "Five ";
+	}
+	else if (number == 6)
+	{
+		cout << "Six ";
+	}
+	else if (number == 7)
+	{
+		cout << "Seven ";
+	}
+	else if (number == 8)
+	{
+		cout << "Eight ";
+	}
+	else if (number == 9)
+	{
+		cout << "Nine ";
+	}
+	else if (number == 10)
+	{
+		cout << "Ten ";
+	}
+	else if (number == 11)
+	{
+		cout << "Jack ";
+	}
+	else if (number == 12)
+	{
+		cout << "Queen ";
+	}
+	else 
+	{
+		cout << "King ";
+	}
+	cout << "Of ";
+	number = rand() % 4;
+	if (number == 0)
+	{
+		cout << "Diamond";
+	}
+	else if (number == 1)
+	{
+		cout << "Heart";
+	}
+	else if (number == 2)
+	{
+		cout << "Spade";
+	}
+	else 
+	{
+		cout << "Club";
+	}
+	return 0;
+}

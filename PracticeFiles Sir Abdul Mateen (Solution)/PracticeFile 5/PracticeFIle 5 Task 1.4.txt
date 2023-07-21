@@ -1,0 +1,15 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	int v,a,d;
+	cout << "Enter Initial Velocity: ";
+	cin >> v;
+	cout << "Enter Acceleration: ";
+	cin >> a;
+	cout << "Enter Distance: ";
+	cin >> d;
+	cout << "Final Velocity is: " << sqrt((v * v) + (2 * a * d));
+	return 0;
+}

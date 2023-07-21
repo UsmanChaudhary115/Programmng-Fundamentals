@@ -1,0 +1,27 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int number = rand()%11,i=0;
+	cout << number << "\n";
+	bool status = true;
+	while (status && i < 3)
+	{
+		int input;
+		cin >> input;
+		if (input == number)
+		{
+			cout << "Winner!";
+			status = false;
+		}
+		i = i + 1;
+	}
+	if (status)
+	{
+		cout << "Loser!\nGenerated number was: " << number;
+	}
+	return 0;
+}

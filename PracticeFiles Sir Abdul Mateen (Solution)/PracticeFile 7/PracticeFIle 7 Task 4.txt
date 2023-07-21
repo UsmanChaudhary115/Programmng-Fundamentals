@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int m1, m2;
+	cout << "Marks of 1st Pupil: ";
+	cin >> m1;
+	cout << "Marks of 2nd Pupil: ";
+	cin >> m2;
+	if (m1 == m2)
+	{
+		cout << "Same!";
+	}
+	else if (m1 < 50 && m2 < 50)
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 < 55 && m1 >= 50) && (m2 < 55&&m2>=50))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 55 && m1 < 58) && (m2 >= 55 && m2 < 58))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 58 && m1 < 61) && (m2 >= 58 && m2 < 61))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 61 && m1 < 65) && (m2 >= 61 && m2 < 65))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 65 && m1 < 70) && (m2 >= 65 && m2 < 70))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 70 && m1 < 75) && (m2 >= 70 && m2 < 75))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 755 && m1 < 80) && (m2 >= 75 && m2 < 80))
+	{
+		cout << "Almost Same!";
+	}
+	else if ((m1 >= 80 && m1 < 85) && (m2 >= 80 && m2 < 85))
+	{
+		cout << "Almost Same!";
+	}
+	else if (m1 >= 85 && m2 >= 85)
+	{
+		cout << "Almost Same!";
+	}
+	else
+	{
+		cout << "Different!";
+	}
+	return 0;
+}

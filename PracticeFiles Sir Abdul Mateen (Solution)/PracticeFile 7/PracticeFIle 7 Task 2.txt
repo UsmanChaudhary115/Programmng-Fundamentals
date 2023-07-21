@@ -1,0 +1,51 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int a = rand() % 1001 + 1;
+	int b = rand() % 1001 + 1;
+	int c = rand() % 1001 + 1;
+	int d = rand() % 1001 + 1;
+	cout <<"May or may not be in order: " << a << ' ' << b << ' ' << c <<' ' << d << '\n';
+	if (c > d)
+	{
+		int temp = c;
+		c = d;
+		d = temp;
+	}
+	if (b > d)
+	{
+		int temp = b;
+		b = d;
+		d = temp;
+	}
+	if (a > d)
+	{
+		int temp = a;
+		a = d;
+		d = temp;
+	}
+	if (c < b)
+	{
+		int temp = c;
+		c = b;
+		b = temp;
+	}
+	if (c < a)
+	{
+		int temp = c;
+		c = a;
+		a = temp;
+	}
+	if (b < a)
+	{
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	cout << "In order: " << a << ' ' << b << ' ' << c <<' ' << d;
+	return 0;
+}

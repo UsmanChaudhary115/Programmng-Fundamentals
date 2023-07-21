@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int number;
+	cout << "Enter 3-Digit number: ";
+	cin >> number;
+	cout << "First digit: " << number / 100 << '\n';
+	number = number % 100;
+	cout << "Second digit: " << number / 10 <<'\n';
+	cout << "Third digit: " << number % 10;
+	return 0;
+}

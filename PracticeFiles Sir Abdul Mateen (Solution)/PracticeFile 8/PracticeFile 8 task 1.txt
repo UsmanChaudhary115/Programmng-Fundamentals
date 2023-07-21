@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch;
+	cin >> ch;
+	int x = ch;
+	int bit = 1;
+	while (x)
+	{
+		if (x % 2)
+		{
+			cout << "Bit " << bit << " is On!" << '\n';
+		}
+		x = x / 2;
+		bit++;
+	}
+	return 0;
+}

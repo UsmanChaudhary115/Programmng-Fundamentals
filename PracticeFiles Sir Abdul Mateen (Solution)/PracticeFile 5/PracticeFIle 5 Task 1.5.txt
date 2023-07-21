@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int v,a,t;
+	cout << "Enter Initial Velocity: ";
+	cin >> v;
+	cout << "Enter Acceleration: ";
+	cin >> a;
+	cout << "Enter Time: ";
+	cin >> t;
+	cout << "Distance is: " << (v * t) + (0.5 * a * t * t);
+	return 0;
+}

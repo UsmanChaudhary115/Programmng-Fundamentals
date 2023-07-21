@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int number;
+	cout << "Enter 3-Digit number: ";
+	cin >> number;
+	int num = 0;
+	while (number)
+	{
+		num = num * 10 + (number % 10);
+		number = number / 10;
+	}
+	cout << "Reverse number is: " << num;
+	return 0;
+}

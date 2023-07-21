@@ -1,0 +1,163 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int number = (rand() % 13) + 1, number2 = (rand() % 13) + 1;
+	if (number == 1)
+	{
+		cout << "Ace";
+	}
+	else if (number == 2)
+	{
+		cout << "Two";
+	}
+	else if (number == 3)
+	{
+		cout << "Three";
+	}
+	else if (number == 4)
+	{
+		cout << "Four";
+	}
+	else if (number == 5)
+	{
+		cout << "Five";
+	}
+	else if (number == 6)
+	{
+		cout << "Six";
+	}
+	else if (number == 7)
+	{
+		cout << "Seven";
+	}
+	else if (number == 8)
+	{
+		cout << "Eight";
+	}
+	else if (number == 9)
+	{
+		cout << "Nine";
+	}
+	else if (number == 10)
+	{
+		cout << "Ten";
+	}
+	else if (number == 11)
+	{
+		cout << "Jack";
+	}
+	else if (number == 12)
+	{
+		cout << "Queen";
+	}
+	else
+	{
+		cout << "King";
+	}
+	cout << " of ";
+	int type = rand() % 4, type2 = rand() % 4;
+	if (type == 0)
+	{
+		cout << "Diamond";
+	}
+	else if (type == 1)
+	{
+		cout << "Heart";
+	}
+	else if (type == 2)
+	{
+		cout << "Spade";
+	}
+	else
+	{
+		cout << "Club";
+	}
+	cout << endl;
+	if (number2 == 1)
+	{
+		cout << "Ace";
+	}
+	else if (number2 == 2)
+	{
+		cout << "Two";
+	}
+	else if (number2 == 3)
+	{
+		cout << "Three";
+	}
+	else if (number2 == 4)
+	{
+		cout << "Four";
+	}
+	else if (number2 == 5)
+	{
+		cout << "Five";
+	}
+	else if (number2 == 6)
+	{
+		cout << "Six";
+	}
+	else if (number2 == 7)
+	{
+		cout << "Seven";
+	}
+	else if (number2 == 8)
+	{
+		cout << "Eight";
+	}
+	else if (number2 == 9)
+	{
+		cout << "Nine";
+	}
+	else if (number2 == 10)
+	{
+		cout << "Ten";
+	}
+	else if (number2 == 11)
+	{
+		cout << "Jack";
+	}
+	else if (number2 == 12)
+	{
+		cout << "Queen";
+	}
+	else
+	{
+		cout << "King";
+	}
+	cout << " of ";
+	if (type2 == 0)
+	{
+		cout << "Diamond";
+	}
+	else if (type2 == 1)
+	{
+		cout << "Heart";
+	}
+	else if (type2 == 2)
+	{
+		cout << "Spade";
+	}
+	else
+	{
+		cout << "Club";
+	}
+	cout << endl;
+	if (number == number2)
+	{
+		cout << "Both cards have same number" << endl;
+	}
+	if (type == type2)
+	{
+		cout << "Both cards have same type" << endl;
+	}
+	if (((type == 0 || type == 1) && (type2 == 0 || type2 == 1)) || ((type == 2 || type == 3) && (type2 == 2 || type2 == 3)))
+	{
+		cout << "Both cards have same colour" << endl;
+	}
+	return 0;
+}

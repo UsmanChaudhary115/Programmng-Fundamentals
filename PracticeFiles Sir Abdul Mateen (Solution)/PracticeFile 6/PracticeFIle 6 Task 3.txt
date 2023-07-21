@@ -1,0 +1,52 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int x;
+	x = rand() % 101;
+	cout<<"Marks: " << x << '\n'<<"Grade: ";
+	if (x < 50)
+	{
+		cout << 'F';
+	}
+	else if (x < 55)
+	{
+		cout << 'D';
+	}
+	else if (x < 58)
+	{
+		cout << "C-";
+	}
+	else if (x < 61)
+	{
+		cout << 'C';
+	}
+	else if (x < 65)
+	{
+		cout << "C+";
+	}
+	else if (x < 70)
+	{
+		cout << "B-";
+	}
+	else if (x < 75)
+	{
+		cout << 'B';
+	}
+	else if (x < 80)
+	{
+		cout << "B+";
+	}
+	else if (x < 85)
+	{
+		cout << "A-";
+	}
+	else
+	{
+		cout << 'A';
+	}
+	return 0;
+}

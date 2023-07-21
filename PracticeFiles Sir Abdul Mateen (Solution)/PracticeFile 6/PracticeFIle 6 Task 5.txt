@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int length1, width1,length2, width2;
+	cout << "Enter length of 1st rectangle: ";
+	cin >> length1;
+	cout << "Enter width of 1st rectangle: ";
+	cin >> width1;
+	cout << "Enter length of 2nd rectangle: ";
+	cin >> length2;
+	cout << "Enter width of 2nd rectangle: ";
+	cin >> width2;
+	cout << "Result: ";
+	if ((length1 * width1) > (length2 * width2))
+	{
+		cout << "Second rectangle is smaller.";
+	}
+	else
+	{
+		cout << "First rectangle is smaller.";
+	}
+	return 0;
+}

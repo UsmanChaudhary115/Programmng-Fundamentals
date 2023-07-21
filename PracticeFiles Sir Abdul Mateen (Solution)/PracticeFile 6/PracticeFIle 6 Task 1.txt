@@ -1,0 +1,22 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int x,y;
+	x = rand() % 5 + 1;
+	y = rand() % 5 + 1;
+	cout << "First Number: " << x << '\n';
+	cout << "Second Number: " << y << '\n';
+	if ((x - y) <= 1 && (x - y) >= -1)
+	{
+		cout << "Numbers are almost equal.";
+	}
+	else
+	{
+		cout << "Not equal.";
+	}
+	return 0;
+}

@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch;
+	int bitNumber;
+	cout << "Enter first character: ";
+	cin >> ch;
+	int num = ch;
+	cout << "Enter Bit number: ";
+	cin >> bitNumber;
+	bool status = false;
+	for(int i=1;i<=bitNumber;i++)
+	{
+		if (i == bitNumber && num % 2)
+		{
+			status = true;
+		}
+		num = num / 2;
+	}
+	if (status)
+	{
+		cout << "The bit number " << bitNumber << " is On in " << ch;
+	}
+	else
+	{
+		cout << "The bit number " << bitNumber << " is Off in " << ch;
+	}
+	return 0;
+}

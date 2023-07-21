@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch;
+	cout << "Enter type: ";
+	cin >> ch;
+	if (ch == 'D' || ch == 'H')
+	{
+		cout << "Red";
+	}
+	else
+	{
+		cout << "Black";
+	}
+	return 0;
+}
