@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+void displayInsingleLine(int array[][4])
+{
+	for (int i = 0; i < 4; i = i + 1)
+	{
+		for (int j = 0; j < 3; j = j + 1)
+		{
+			cout << array[i][j] << ' ';
+		}
+	}
+}
+int main()
+{
+	srand(time(0));
+	int array[4][4];
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			array[i][j] = rand() % 91 + 10;
+		}
+	}
+	displayInsingleLine(array);
+	cout << '\n';
+	cout << "Matrix:" << '\n';
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			cout << array[i][j] << ' ';
+		}
+		cout << '\n';
+	}
+	cout << "Principal Diagonal: ";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << array[i][i] << ' ';	
+	}
+	cout << '\n';
+	cout << "Secondary Diagonal: ";
+	for (int i = 0, j = 3; i < 4; i++, j--)
+	{
+			cout << array[i][j] << ' ';
+	}
+	cout << endl;
+	return 0;
+}

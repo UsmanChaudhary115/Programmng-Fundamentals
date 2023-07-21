@@ -1,0 +1,72 @@
+//Program will initialize marks of 30 students at random in range 1 - 100. 
+//The management is interested to divide students in three categories i.e.
+//failures, above average and below average
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+int main()
+{
+	srand(time(0));
+	int arrayOfMarks[30], sum = 0;
+	int countOfPassedPupils = 0;
+	int countOfFailedPupils = 0;
+	cout << "Marks: ";
+	for (int i = 0; i < 30; i++)
+	{
+		arrayOfMarks[i] = rand() % 100 + 1;
+		cout << arrayOfMarks[i] << ' ';
+		if (arrayOfMarks[i] >= 50)
+		{
+			countOfPassedPupils++;
+		}
+		else
+		{
+			countOfFailedPupils++;
+		}
+	}
+	int* arrayOfPassedPupils = new int[countOfPassedPupils];
+	int* arrayOfFailedPupils = new int[countOfFailedPupils];
+	for (int i = 0,j = 0,k = 0; i < 30; i++)
+	{
+		if (arrayOfMarks[i] >= 50)
+		{
+			arrayOfPassedPupils[j] = arrayOfMarks[i];
+			j++;
+			sum = sum + arrayOfMarks[i];
+		}
+		else
+		{
+			arrayOfFailedPupils[k] = arrayOfMarks[i];
+			k++;
+		}
+	}
+	float avg = (float)sum / countOfPassedPupils;
+	cout <<"\nAverage Marks of passed Pupils: " << avg << '\n' << "Marks of Failed Pupils: ";
+	for (int i = 0, j = 0; i < countOfFailedPupils; i++)
+	{
+		cout << arrayOfFailedPupils[i] << ' ';
+	}
+	cout << '\n' << "Marks of Passed Pupils above average: ";
+	for (int i = 0, j = 0; i < countOfPassedPupils; i++)
+	{
+		if(arrayOfPassedPupils[i]>avg)
+		{
+			cout << arrayOfPassedPupils[i] << ' ';
+		}
+	}
+	cout << '\n' << "Marks of Passed Pupils below average: ";
+	for (int i = 0, j = 0; i < countOfPassedPupils; i++)
+	{
+		if (arrayOfPassedPupils[i] < avg)
+		{
+			cout << arrayOfPassedPupils[i] << ' ';
+		}
+	}
+	delete[] arrayOfPassedPupils;
+	arrayOfPassedPupils=nullptr;
+	delete[] arrayOfFailedPupils;
+	arrayOfFailedPupils=nullptr;
+	cout << endl;
+	return 0;
+}

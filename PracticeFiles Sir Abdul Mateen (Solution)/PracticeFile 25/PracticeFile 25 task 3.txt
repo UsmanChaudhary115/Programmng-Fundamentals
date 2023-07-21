@@ -1,0 +1,45 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+int main()
+{
+	srand(time(0));
+	int arrayOfSales[12];
+	cout << "Monthly Sales: ";
+	for (int i = 0; i < 12; i++)
+	{
+		arrayOfSales[i] = rand() % 1001 + 1000;
+		cout << arrayOfSales[i] << ' ';
+	}
+	cout << '\n';
+	int sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
+	for (int i = 0; i < 12; i++)
+	{
+		if (i < 3)
+		{
+			sum1 = sum1 + arrayOfSales[i];
+		}
+		else if (i < 6)
+		{
+			sum2 = sum2 + arrayOfSales[i];
+		}
+		else if (i < 9)
+		{
+			sum3 = sum3 + arrayOfSales[i];
+		}
+		else
+		{
+			sum4 = sum4 + arrayOfSales[i];
+		}
+	}
+	cout << "First Half: " << sum1 + sum2 << '\n';
+	cout << "Second Half: " << sum3 + sum4 << '\n';
+	cout << "Quarter wise Sales:" << '\n';
+	cout << "Sales in 1st Quarter: " << sum1 << '\n';
+	cout << "Sales in 2nd Quarter: " << sum2 << '\n';
+	cout << "Sales in 3rd Quarter: " << sum3 << '\n';
+	cout << "Sales in 4th Quarter: " << sum4;
+	cout << endl;
+	return 0;
+}

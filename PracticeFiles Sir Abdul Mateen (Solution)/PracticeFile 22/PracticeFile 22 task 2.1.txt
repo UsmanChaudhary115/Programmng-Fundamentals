@@ -1,0 +1,61 @@
+//This program opens a file and read record from it and display a record 
+//according to given conditions
+#include<iostream>
+#include<fstream>
+using  namespace std;
+int main()
+{
+	ifstream ifs;
+	ifs.open("data.txt");
+	if (!ifs)
+	{
+		cout << "File not opend!";
+	}
+	else
+	{
+		float arrayOfAverages[10];
+		float maxAverage = 0.0;
+		int* classwithMaxavg=new int[1];
+		int num, className, countOfPupils;
+		int classNameWithMaxAverage, countOfPupilsWithMaxAverage;
+		while (ifs >> num)
+		{
+			float sum = 0;
+			className = num;
+			ifs >> countOfPupils;
+			int* ptr=new int [countOfPupils];
+			for (int i = 0; i < countOfPupils; i++)
+			{
+				ifs >> num;
+				ptr[i] = num;
+				sum = sum + num;
+			}
+			float avg = sum / countOfPupils;
+			if (avg > maxAverage)
+			{
+				delete[] classwithMaxavg;
+				classwithMaxavg = nullptr;
+				maxAverage = avg;
+				classNameWithMaxAverage = className;
+				countOfPupilsWithMaxAverage = countOfPupils;
+				classwithMaxavg = new int[countOfPupils];
+				for (int i = 0; i < countOfPupils; i++)
+				{
+					classwithMaxavg[i] = ptr[i];
+				}
+			}
+			delete[] ptr;
+			ptr = nullptr;
+		}
+		ifs.close();
+		cout << "Class with Max Average: Class " << classNameWithMaxAverage<<" having "<< countOfPupilsWithMaxAverage<<" students.";
+		cout << "\nAverage: " << maxAverage << endl << "Marks of Pupils: ";
+		for (int i = 0; i < countOfPupils; i++)
+		{
+			cout << classwithMaxavg[i]<<' ';
+		}
+		delete[] classwithMaxavg;
+		classwithMaxavg = nullptr;
+	}
+	return 0;
+}

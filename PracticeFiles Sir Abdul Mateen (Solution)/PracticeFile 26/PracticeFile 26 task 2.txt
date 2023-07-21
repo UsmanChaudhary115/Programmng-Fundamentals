@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+struct Pair
+{
+	int num1;
+	int num2;
+};
+int main() 
+{
+	int length, i;
+	srand(time(0));
+	length = rand() % 11 + 5;
+	int* list1 = new int[length];
+	int* list2 = new int[length];
+	for (int i = 0; i < length; i++) 
+	{
+		list1[i] = rand() % 101;
+		list2[i] = rand() % 101;
+	}
+	cout << "List 1: ";
+	for (int i = 0; i < length; i++)
+	{
+		cout << list1[i] << '\t';
+	}
+	cout << '\n'<<"List 2: ";
+	for (int i = 0; i < length; i++)
+	{
+		cout << list2[i] << '\t';
+	}
+	cout << '\n';
+	for (int i = 0; i < length; i++)
+	{
+		if (list1[i] > list2[i])
+		{
+			cout << list1[i] << '\t';
+		}
+		else
+		{
+			cout << list2[i] << '\t';
+		}
+	}
+	delete[] list1;
+	list1 = nullptr;
+	delete[] list2;
+	list2 = nullptr;
+	cout << '\n';
+	return 0;
+}

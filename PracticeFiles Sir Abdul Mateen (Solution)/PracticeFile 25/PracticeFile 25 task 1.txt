@@ -1,0 +1,46 @@
+//code will have a random number of elements Initialize random(with any range of your choice).
+//Print elements in single line.
+//Find and print average.
+//Subtract all element from average.
+//Print elements again in single line.
+//Next, count and print number of negative elements and number of positive elements
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+int main()
+{
+	srand(time(0));
+	int length = rand() % 11 + 10;
+	cout << "Length: " << length << '\n';
+	int negativeCounts = 0, positiveCounts = 0;
+	float sum=0;
+	float* array = new float[length];
+	for (int i = 0; i < length; i++)
+	{
+		int num = rand() % 100 + 1;
+		array[i] = num;
+		cout << num << ' ';
+		sum = sum + num;
+	}
+
+	float average = sum / length;
+	cout <<'\n' << "Average: " << average << '\n';
+	for (int i = 0; i < length; i++)
+	{
+		array[i] = array[i] - average;
+		cout << array[i] << ' ';
+		if (array[i] > 0)
+		{
+			positiveCounts++;
+		}
+		else if (array[i] < 0)
+		{
+			negativeCounts++;
+		}
+	}
+	cout << '\n' << "Count of Negative Values: " << negativeCounts << '\n';
+	cout << "Count of Positive Values: " << positiveCounts;
+	cout << endl;
+	return 0;
+}

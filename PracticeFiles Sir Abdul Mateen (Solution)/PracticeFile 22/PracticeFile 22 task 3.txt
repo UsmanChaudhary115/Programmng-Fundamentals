@@ -1,0 +1,35 @@
+//code to create a file that should contain marks of 5 classes.
+//Each class has marks of 7 to 10 students and each student has marks 0 - 100 at random.
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+int main()
+{
+	srand(time(0));
+	ofstream ofs;
+	ofs.open("data.txt");
+	if (!ofs)
+	{
+		cout << "File not opend!";
+	}
+	else
+	{
+		for (int i = 1; i <= 5; i++)
+		{
+			ofs << "Class Name: " << rand() % 5 + 1<<'\n';
+			int num = rand() % 4 + 7;
+			ofs << "Number of students: " << num << '\n' << "Marks: ";
+			while(num)
+			{
+				ofs << rand() % 100 + 1 << ' ';
+				num--;
+			}
+			if(i<5)
+			ofs << '\n';
+		}
+		ofs.close();
+	}
+	return 0;
+}

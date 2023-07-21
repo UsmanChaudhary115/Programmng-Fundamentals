@@ -1,0 +1,35 @@
+//code to create a file matrix.txt having random number for rows(4 - 8) and columns(4 - 8)
+//Rows and columns on the top of the file, each in single line.
+// Next in rows* columns lines, random elements of the matrix in range 1 to 9
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<ctime>
+using  namespace std;
+int main()
+{
+	srand(time(0));
+	ofstream ofs;
+	ofs.open("matrix.txt");
+	if (!ofs)
+	{
+		cout << "File not opend!";
+	}
+	else
+	{
+		int rows = rand() % 5 + 4;
+		ofs << "Rows: " << rows <<'\n';
+		int columns = rand() % 5 + 4;
+		ofs << "Columns: " << columns << '\n' << "Matrix:"<<'\n';
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < columns;j++)
+			{
+				ofs << rand() % 9 + 1 << '\t';
+			}
+			ofs << '\n';
+		}
+		ofs.close();
+	}
+	return 0;
+}
