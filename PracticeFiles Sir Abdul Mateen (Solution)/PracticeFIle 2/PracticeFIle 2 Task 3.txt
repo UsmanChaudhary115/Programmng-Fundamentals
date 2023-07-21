@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a;
+	cout << "Enter Distance in KM: ";
+	cin >> a;
+	cout << "Distance in Miles is: " << a*0.6;
+	return 0;
+}

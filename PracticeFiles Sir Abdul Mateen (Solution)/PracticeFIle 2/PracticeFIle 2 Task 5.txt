@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int sec, min, hours;
+	cin >> sec;
+	min = sec / 60;
+	sec = sec % 60;
+	hours = min / 60;
+	min = min % 60;
+	cout << "Hours: " << hours << "\nMInutes: " << min << "\nSeconds: " << sec;
+	return 0;
+}

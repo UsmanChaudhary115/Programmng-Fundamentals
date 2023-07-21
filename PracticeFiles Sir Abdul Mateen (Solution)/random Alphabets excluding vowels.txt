@@ -1,0 +1,15 @@
+void display_Random_Alphabets(int n)// enter count of alphabets
+{
+	for (int i = 0; i < n; i++)
+	{
+		char ch = rand() % 26 + 65;
+		if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+		{
+			i--;
+		}
+		else
+		{
+			cout << ch << ' ';
+		}
+	}
+}

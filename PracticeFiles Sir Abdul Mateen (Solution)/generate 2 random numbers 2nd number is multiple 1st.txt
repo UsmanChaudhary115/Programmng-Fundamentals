@@ -1,0 +1,22 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+
+int main()
+{
+	srand(time(0));
+	int num1 = rand();
+	int num2;
+	bool status = true;
+	while (status)
+	{
+		num2 = rand() + num1;
+		if (num2 % num1 == 0)
+		{
+			status = false;
+		}
+	}
+	cout << num1 << ' ' << num2;
+	return 0;
+}
