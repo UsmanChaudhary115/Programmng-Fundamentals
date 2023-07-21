@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int sumOfEven = 0, sumOfOdd = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		int num = rand();
+		cout << num << '\n';
+		if (num%2==0)
+		{
+			sumOfEven = sumOfEven + num;
+		}
+		else
+		{
+			sumOfOdd = sumOfOdd + num;
+		}
+	}
+	cout << "Sum of Even Numbers: " << sumOfEven << '\n';
+	cout << "Sum of Odd Numbers: " << sumOfOdd;
+	return 0;
+}

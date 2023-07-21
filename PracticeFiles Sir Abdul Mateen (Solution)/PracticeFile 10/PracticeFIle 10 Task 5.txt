@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int maxNum = 0;
+	for (int i = 49; i > 0; i = i - 1)
+	{
+		cout << i << ' ';
+	}
+	return 0;
+}

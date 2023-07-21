@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int startingNum, endingNum;
+	cout << "Starting Number: ";
+	cin >> startingNum;
+	cout << "Ending Number: ";
+	cin >> endingNum;
+	for (int i = startingNum; i <= endingNum; i = i + 1)
+	{
+		cout << i << ' ';
+	}
+	return 0;
+}

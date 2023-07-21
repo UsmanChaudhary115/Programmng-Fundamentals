@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	float maxAvg = 0.0, minAvg = 100;
+	int minArray[3], maxArray[3];
+	for (int i = 0; i < 10; i++)
+	{
+		int a = rand()%101;
+		int b = rand()%101;
+		int c = rand()%101;
+		float avg = (a + b + c) / 3.0;
+		cout << a << ' ' << b << ' ' << c << '\t' << avg << '\n';
+		if (avg > maxAvg)
+		{
+			maxAvg = avg;
+			maxArray[0] = a;
+			maxArray[1] = b;
+			maxArray[2] = c;
+		}
+		else if (avg < minAvg)
+		{
+			minAvg = avg;
+			minArray[0] = a;
+			minArray[1] = b;
+			minArray[2] = c;
+		}
+	}
+	cout << "Maximum Average is: " << maxAvg << '\n'<<"Set with maximum average: ";
+	for (int i = 0; i < 3; i++)
+	{
+		cout << maxArray[i] << ' ';
+	}
+	cout <<'\n' << "Minimum Average is: " << minAvg << '\n' << "Set with minimum average: ";
+	for (int i = 0; i < 3; i++)
+	{
+		cout << minArray[i] << ' ';
+	}
+	return 0;
+}

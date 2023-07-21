@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	float maxAvg = 0.0;
+	int count = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		int a = rand();
+		int b = rand();
+		int c = rand();
+		float avg = (a + b + c) / 3.0;
+		cout << a << ' ' << b << ' ' << c << '\t' << avg << '\n';
+		if (avg > maxAvg)
+		{
+			maxAvg = avg;
+			count = i + 1;
+		}
+	}
+	cout << "Set "<<count<<" has the highest average.";
+	return 0;
+}         

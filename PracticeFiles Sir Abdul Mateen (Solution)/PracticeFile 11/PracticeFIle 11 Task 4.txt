@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	for (int i = 0; i < 10; i++)
+	{
+		char ch = rand() % 26 + 65;
+		cout << ch << ' ';
+		if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+		{
+			cout << "Vowel";
+		}
+		else
+		{
+			cout << "Consonant";
+		}
+		cout << '\n';
+	}
+	return 0;
+}

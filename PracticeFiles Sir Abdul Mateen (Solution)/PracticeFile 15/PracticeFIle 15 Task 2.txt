@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int number;
+	cout << "Enter Number: ";
+	cin >> number;
+	cout << "It's reverse Octal is: ";
+	while (number)
+	{
+		cout << number % 8;
+		number = number / 8;
+	}
+	return 0;
+}         

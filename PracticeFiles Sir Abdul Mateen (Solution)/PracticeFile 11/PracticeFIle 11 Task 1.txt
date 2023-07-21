@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int maxNum = 0;
+	for (int i = 0; i < 10; i = i + 1)
+	{
+		int a = rand();
+		int b = rand();
+		cout << a << ' ' << b<<'\n';
+		if (a > b)
+		{
+			cout << "First Number is larger";
+		}
+		else
+		{
+			cout << "Second Number is larger";
+		}
+		cout << '\n';
+	}
+	return 0;
+}

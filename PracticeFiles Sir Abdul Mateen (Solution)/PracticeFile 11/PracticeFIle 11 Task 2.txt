@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	for (int i = 0; i < 10; i++)
+	{
+		int num1 = rand(), num2 = rand(), num3 = rand(), temp = num1;
+		cout << "As it is: " << num1 << ' ' << num2 << ' ' << num3 << endl;
+		if (num3 < num2)
+		{
+			temp = num3;
+			num3 = num2;
+			num2 = temp;
+		}
+		if (num3 < num1)
+		{
+			temp = num3;
+			num3 = num1;
+			num1 = temp;
+		}
+		if (num2 < num1)
+		{
+			temp = num2;
+			num2 = num1;
+			num1 = temp;
+		}
+		cout << "Re-Arranged: " << num1 << ' ' << num2 << ' ' << num3 << endl;
+	}
+	return 0;
+}
