@@ -1,0 +1,14 @@
+void printCounting(int n, int d) //input count & distance between two integers
+{
+	int number = 1;
+	while (n)
+	{
+		cout << number; 
+		if (n > 1)
+		{
+			cout << ", ";
+		}
+		number = number + d;
+		n--;
+	}
+}

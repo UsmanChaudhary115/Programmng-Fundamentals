@@ -1,0 +1,26 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int sum=0;
+	while (sum != 50)
+	{
+		sum = 0;
+		bool status = true;
+		while (status)
+		{
+			int num = rand() % 10;
+			cout << num << ' ';
+			sum = sum + num;
+			if (sum >= 50)
+			{
+				status = false;
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}

@@ -1,0 +1,16 @@
+int getMiddleValue(int a, int b, int c)
+{
+	if (c < b)
+	{
+		int temp = c;
+		c = b;
+		b = temp;
+	}
+	if (c < a)
+	{
+		int temp = c;
+		c = a;
+		a = temp;
+	}
+	return a < b ? b : a;
+}

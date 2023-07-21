@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int N;
+	cout << "N: ";
+	cin >> N;
+	for (int i = 1; i <= N - 1; i++)
+	{
+		char ch = 'a';
+		for (int j = 0; j < N + 1; j++)
+		{
+			cout << ch << ' ';
+			ch = ch + i;
+		}
+		cout << '\n';
+	}
+	return 0;
+}

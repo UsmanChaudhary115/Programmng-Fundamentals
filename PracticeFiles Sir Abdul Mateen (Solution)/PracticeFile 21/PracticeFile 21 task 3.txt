@@ -1,0 +1,22 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	bool status = true;
+	int count = 0;
+	while (status)
+	{
+		int a = rand() + 1;
+		int b = rand() + 1;
+		if (b + a == 50)
+		{
+			cout << "First Number: " << a << "\nSecond Number: " << b<<"\nLoop has to run for "<<count<<" times.";
+			status = false;
+		}
+		count++;
+	}
+	return 0;
+}

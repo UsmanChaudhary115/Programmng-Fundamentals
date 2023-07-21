@@ -1,0 +1,9 @@
+void printFIrst50PositiveIntegers()
+{
+	int n = 2;
+	while (n <= 50)
+	{
+		cout << n<<' ';
+		n = n + 2;
+	}
+}

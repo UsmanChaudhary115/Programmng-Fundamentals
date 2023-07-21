@@ -1,0 +1,13 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	for (int num = rand(), i = 0; i < 10; i++, num = num + (rand() % 2 + 2))
+	{
+		cout << num << '\n';
+	}
+	return 0;
+}

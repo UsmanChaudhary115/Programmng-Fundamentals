@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int count = 0;
+	while (count<5)
+	{
+		char ch = rand() % 26 + 65;
+		if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+		{
+			count--;
+		}
+		else
+		{
+			cout << ch << ' ';
+		}
+		count++;
+	}
+	return 0;
+}

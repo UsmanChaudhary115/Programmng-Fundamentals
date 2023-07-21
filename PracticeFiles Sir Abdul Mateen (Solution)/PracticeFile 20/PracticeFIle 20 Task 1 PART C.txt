@@ -1,0 +1,8 @@
+void printRandomNumbers(int n, int a,int b)//enter count of numbers, range from a to b
+{
+	while (n)
+	{
+		cout << (rand() % b-a) + a<<' ';
+		n--;
+	}
+}

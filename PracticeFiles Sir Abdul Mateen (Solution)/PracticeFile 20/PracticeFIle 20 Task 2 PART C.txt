@@ -1,0 +1,27 @@
+float calculatePower(int a, int b)
+{
+	float power=1;
+	if (a == 1||b==0)
+	{
+		power = 1;
+	}
+	else if (b < 0)
+	{
+		b = b * -1;
+		while (b)
+		{
+			power = power * a;
+			b = b - 1;
+		}
+		power = 1.0 / power;
+	}
+	else
+	{
+		while (b)
+		{
+			power = power * a;
+			b = b - 1;
+		}
+	}
+	return power;
+}
