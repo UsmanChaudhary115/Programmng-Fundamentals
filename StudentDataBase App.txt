@@ -1,0 +1,198 @@
+#include<iostream>
+using namespace std;
+int searchRollNumber(int rollNumber, int array[], int size)
+{
+	int index = 0;
+	while (index < size)
+	{
+		if (rollNumber == array[index])
+		{
+			return index;
+		}
+		index = index + 1;
+	}
+	return size;
+}
+void showProcessStatus(int number)
+{
+switch (number)
+{
+	case 0:
+	{
+		cout << "Database is full!\n";
+		break;
+	}
+	case 1:
+	{
+		cout << "Recored Entered Successfully!\n";
+		break;
+	}
+	case 2:
+	{
+		cout << "Required Record is shown above!\n";
+		break;
+	}
+	case 3:
+	{
+		cout << "Recored Updated Successfully!\n";
+		break;
+	}
+	case 4:
+	{
+		cout << "Recored Deleted Successfully!\n";
+		break;
+	}
+	default:
+	{
+		cout << "Record not found!\n";
+	}
+}	
+}
+int enterRecord(int arrayOfRollNumbers[], float arrayOfCGPA[], int size, int** lastRecordCount)
+{
+	int processStatus;
+	if (**lastRecordCount == size)
+	{
+		processStatus = 0;
+	}
+	else
+	{
+		cout << "Enter Roll number: ";
+		cin >> arrayOfRollNumbers[**lastRecordCount];
+		cout << "Enter CGPA: ";
+		cin >> arrayOfCGPA[**lastRecordCount];
+		**lastRecordCount = **lastRecordCount + 1;
+		processStatus = 1;
+	}
+	return processStatus;
+}
+int showRecord(int arrayOfRollNumbers[], float arrayOfCGPA[], int size)
+{
+	int rollNumber,processStatus;
+	cout << "Enter Roll Number: ";
+	cin >> rollNumber;
+	int index = searchRollNumber(rollNumber, arrayOfRollNumbers, size);
+	if (index < size)
+	{
+		cout << "CGPA is: " << arrayOfCGPA[index] << '\n';
+		processStatus = 2;
+	}
+	else
+	{
+		processStatus = 5;
+	}
+	return processStatus;
+}
+int changeRecord(int arrayOfRollNumbers[], float arrayOfCGPA[], int size)
+{
+	int rollNumber,processStatus;
+	cout << "Enter Roll Number: ";
+	cin >> rollNumber;
+	int index = searchRollNumber(rollNumber, arrayOfRollNumbers, size);
+	if (index < size)
+	{
+		cout << "Enter new CGPA: ";
+		cin >> arrayOfCGPA[index];
+		processStatus = 3;
+	}
+	else
+	{
+		processStatus = 5;
+	}
+	return processStatus;
+}
+int deleteRecord(int arrayOfRollNumbers[], float arrayOfCGPA[], int size, int** lastRecordCount)
+{
+	int rollNumber,processStatus;
+	cout << "Enter Roll Number: ";
+	cin >> rollNumber;
+	int index = searchRollNumber(rollNumber, arrayOfRollNumbers, size);
+	if (index < size)
+	{
+		arrayOfRollNumbers[index] = arrayOfRollNumbers[**lastRecordCount - 1];
+		arrayOfCGPA[index] = arrayOfCGPA[**lastRecordCount - 1];
+		**lastRecordCount = **lastRecordCount - 1;
+		processStatus = 4;
+	}
+	else
+	{
+		processStatus = 5;
+	}
+	return processStatus;
+}
+int showFilteredRecord(int arrayOfRollNumbers[],float arrayOfCGPA[],int size)
+{
+	float upperLimit, lowerLimit;
+	cout << "Enter lower Limit: ";
+	cin >> lowerLimit;
+	cout << "Enter upper Limit: ";
+	cin >> upperLimit;
+	int processStatus = 5;
+	for (int i = 0; i < size; i = i + 1)
+	{
+		if (arrayOfCGPA[i] > lowerLimit && arrayOfCGPA[i] < upperLimit)
+		{
+			cout << "Roll Number:\t" << arrayOfRollNumbers[i] << "\tCGPA\t" << arrayOfCGPA[i] << '\n';
+			processStatus = 2;
+		}
+	}
+	return processStatus;
+}
+void database(int choice, int arrayOfRollNumbers[], float arrayOfCGPA[], int size, int* lastRecordCount)
+{
+	int processStatus;
+	if (choice == 1)
+	{
+		processStatus=enterRecord(arrayOfRollNumbers, arrayOfCGPA, size, &lastRecordCount);
+	}
+	else if (choice == 2)
+	{
+		processStatus=showRecord(arrayOfRollNumbers, arrayOfCGPA, size);
+	}
+	else if (choice == 3)
+	{
+		processStatus = changeRecord(arrayOfRollNumbers, arrayOfCGPA, size);
+	}
+	else if(choice==4)
+	{
+		processStatus = deleteRecord(arrayOfRollNumbers, arrayOfCGPA, size, &lastRecordCount);
+	}
+	else if(choice==5)
+	{
+		processStatus = showFilteredRecord(arrayOfRollNumbers, arrayOfCGPA, size);
+	}
+	else
+	{
+		cout << "Invalid choice!";
+		return;
+	}
+	showProcessStatus(processStatus);
+}
+void dataBaseApp()
+{
+	const int size = 3;
+	int arrayOfRollNumbers[size];
+	float arrayOfCGPA[size];
+	int lastRecordCount = 0;
+	int choice;
+	do
+	{
+		cout <<'\n' << "Enter 1 to write record in the database" << '\n';
+		cout << "Enter 2 to read record from the database" << '\n';
+		cout << "Enter 3 to change record in the database" << '\n';
+		cout << "Enter 4 to delete record from the database" << '\n';
+		cout << "Enter 5 to see record from the database using filter" << '\n';
+		cout << "Enter 0 to Close the database" << '\n';
+		cin >> choice;
+		if (choice)
+		{
+			database(choice, arrayOfRollNumbers, arrayOfCGPA, size, &lastRecordCount);
+		}
+	} while (choice);
+}
+int main()
+{
+	dataBaseApp();
+	cout << endl;
+	return 0;
+}
